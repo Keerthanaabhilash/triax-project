@@ -1,19 +1,19 @@
-import { Button } from '@/components/ui/button';
-import { ArrowRight, Phone } from 'lucide-react';
-import heroImage from '@/assets/hero-bg.jpg';
-import centerLogoImage from '@/assets/logo.png'; // ✅ FIXED — Vercel-safe import
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Phone } from "lucide-react";
+import heroImage from "@/assets/hero-bg.jpg";
+import centerLogoImage from "@/assets/logo.png"; // ✅ Correct Vercel-safe import
 
 export const Hero = () => {
   const handleScroll = (id: string) => {
     const element = document.querySelector(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   // ---- Center Floating Logo Overlay ----
   const centerLogo = (
-    <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-40">
+    <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-[9999]">
       <img
         src={centerLogoImage}
         alt="Centered Logo"
@@ -31,7 +31,7 @@ export const Hero = () => {
         id="home"
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
       >
-        {/* Background Image with Overlay */}
+        {/* Background Image */}
         <div className="absolute inset-0">
           <img
             src={heroImage}
@@ -49,15 +49,15 @@ export const Hero = () => {
             </h1>
 
             <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-              Dubai-based engineering company specializing in custom machine design,
-              industrial automation, and stainless-steel fabrication.
+              Dubai-based engineering company specializing in custom machine
+              design, industrial automation, and stainless-steel fabrication.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
                 className="bg-accent hover:bg-accent/90 text-white font-semibold text-lg px-8 py-6"
-                onClick={() => handleScroll('#products')}
+                onClick={() => handleScroll("#products")}
               >
                 View Services
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -67,7 +67,7 @@ export const Hero = () => {
                 size="lg"
                 variant="outline"
                 className="bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white/20 font-semibold text-lg px-8 py-6"
-                onClick={() => handleScroll('#contact')}
+                onClick={() => handleScroll("#contact")}
               >
                 <Phone className="mr-2 h-5 w-5" />
                 Contact Us
