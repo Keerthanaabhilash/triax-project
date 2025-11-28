@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
-import centerLogoImage from "@/assets/logo.png"; // ✅ Correct Vercel-safe import
+import centerLogoImage from "@/assets/logo.png";
 
 export const Hero = () => {
   const handleScroll = (id: string) => {
@@ -17,7 +17,7 @@ export const Hero = () => {
       <img
         src={centerLogoImage}
         alt="Centered Logo"
-        className="w-40 md:w-56 opacity-10 select-none"
+        className="w-56 md:w-72 opacity-20 select-none"  // <-- UPDATED SIZE + OPACITY
       />
     </div>
   );
