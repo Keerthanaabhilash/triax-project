@@ -1,34 +1,58 @@
-import { Mail, Phone } from 'lucide-react';
-import logo from '@/assets/logo.png';
+import { Mail } from "lucide-react";
+import { useEffect, useState } from "react";
+import logo from "@/assets/logo.png";
+import whatsappIcon from "@/assets/whatsapp.png"; // WhatsApp icon image
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [showWhatsapp, setShowWhatsapp] = useState(false);
+
+  // Show WhatsApp icon only when footer is visible
+  useEffect(() => {
+    const handleScroll = () => {
+      const footer = document.getElementById("footer-section");
+      if (!footer) return;
+
+      const rect = footer.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+
+      setShowWhatsapp(isVisible);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Services', href: '#expertise' },
-    { name: 'Products', href: '#products' },
-    { name: 'Projects', href: '#projects' },
+    { name: "Home", href: "#home" },
+    { name: "About Us", href: "#about" },
+    { name: "Services", href: "#expertise" },
+    { name: "Products", href: "#products" },
+    { name: "Projects", href: "#projects" },
   ];
 
   const handleNavClick = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <footer id="contact" className="bg-foreground text-white py-12">
+    <footer id="footer-section" className="bg-foreground text-white py-12 relative">
+      {/* Invisible anchor for Navbar scroll */}
+      <div id="contact" className="absolute -top-20"></div>
+
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
+
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img 
-                src={logo} 
-                alt="Triaxiz Logo" 
+              <img
+                src={logo}
+                alt="Triaxiz Logo"
                 className="h-16 w-16 transition-transform duration-300 hover:scale-110"
               />
               <div>
@@ -38,25 +62,40 @@ export const Footer = () => {
                 <p className="text-xs text-white/60">Technical Services LLC</p>
               </div>
             </div>
+
             <p className="text-white/80 mb-4">
               Engineering excellence through innovation. Your trusted partner for industrial automation and custom machinery solutions.
             </p>
+
+            <p className="text-white/80 mb-4">Need help? Chat with us</p>
+
+            {/* Icons Row */}
             <div className="flex gap-4">
+              {/* Email Icon */}
               <a
                 href="mailto:sales@triaxizuae.com"
-                className="p-2 bg-white/10 rounded-full hover:bg-primary transition-colors"
+                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
                 aria-label="Email"
               >
                 <Mail className="w-5 h-5" />
               </a>
-              <a
-                href="tel:+971523944779"
-                className="p-2 bg-white/10 rounded-full hover:bg-primary transition-colors"
-                aria-label="Phone"
-              >
-                <Phone className="w-5 h-5" />
-              </a>
-              
+
+              {/* WhatsApp Icon (only visible in footer) */}
+              {showWhatsapp && (
+                <a
+                  href="https://wa.me/971523944779"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-white/10 rounded-full overflow-hidden flex items-center justify-center hover:bg-green-500 transition-colors"
+                  aria-label="WhatsApp"
+                >
+                  <img
+                    src={whatsappIcon}
+                    alt="WhatsApp"
+                    className="w-full h-full object-cover"
+                  />
+                </a>
+              )}
             </div>
           </div>
 
@@ -104,11 +143,11 @@ export const Footer = () => {
 
         {/* Copyright */}
         <div className="border-t border-white/20 pt-8 text-center text-white/60">
-          <p>
-            © {currentYear} Triaxiz Technical Services LLC. All rights reserved.
-          </p>
+          <p>© {currentYear} Triaxiz Technical Services LLC. All rights reserved.</p>
         </div>
       </div>
     </footer>
   );
 };
+
+export default Footer;

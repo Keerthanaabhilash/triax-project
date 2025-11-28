@@ -30,7 +30,7 @@ const expertiseItems: ExpertiseItem[] = [
 
 export const Expertise = () => {
   return (
-    <section className="py-16 bg-gradient-to-b from-muted/20 to-muted/10 flex justify-center">
+    <section id="expertise" className="py-16 bg-gradient-to-b from-muted/20 to-muted/10 flex justify-center">
       <div className="w-full max-w-5xl px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
