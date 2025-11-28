@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Phone } from 'lucide-react';
 import heroImage from '@/assets/hero-bg.jpg';
+import centerLogoImage from '@/assets/logo.png'; // ✅ FIXED — Vercel-safe import
 
 export const Hero = () => {
   const handleScroll = (id: string) => {
@@ -14,7 +15,7 @@ export const Hero = () => {
   const centerLogo = (
     <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-40">
       <img
-        src="/src/assets/logo.png"
+        src={centerLogoImage}
         alt="Centered Logo"
         className="w-40 md:w-56 opacity-10 select-none"
       />
@@ -26,7 +27,10 @@ export const Hero = () => {
     <>
       {centerLogo}
 
-      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section
+        id="home"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      >
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img
@@ -43,9 +47,12 @@ export const Hero = () => {
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
               Concept To Creation
             </h1>
+
             <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-              Dubai-based engineering company specializing in custom machine design, industrial automation, and stainless-steel fabrication.
+              Dubai-based engineering company specializing in custom machine design,
+              industrial automation, and stainless-steel fabrication.
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
@@ -55,6 +62,7 @@ export const Hero = () => {
                 View Services
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
+
               <Button
                 size="lg"
                 variant="outline"
