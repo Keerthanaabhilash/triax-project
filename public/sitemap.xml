@@ -2,9 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://www.triaxizuae.com/sitemap.xml</loc>
+    <loc>https://www.triaxizuae.com/</loc>
     <priority>1.0</priority>
-    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.triaxizuae.com/About</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.triaxizuae.com/Clients</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.triaxizuae.com/Expertise</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.triaxizuae.com/Products</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.triaxizuae.com/Projects</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.triaxizuae.com/Vision</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.triaxizuae.com/Process</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.triaxizuae.com/WhyChooseUs</loc>
+    <priority>0.8</priority>
   </url>
 
 </urlset>
